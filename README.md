@@ -1,7 +1,7 @@
 ## About
-Fetching flash-in data is one way to reconstruct the entire communication without breaking into an unknown MCU.
-But things can get messy when dealing with custom write-in method and other tricks...
-Note that there might have a plan B that can bypass the problem if you think thoroughly.
+Capturing flash-in data is one approach to reconstructing full communication without requiring invasive access to an unknown MCU.
+However, the process becomes more complex when custom write-in mechanisms or other obfuscation techniques are involved.
+In such cases, alternative strategies may be required to circumvent these challenges through careful system-level analysis.
  
 Description and further info are either at the top or bottom of each file.
 
