@@ -1,0 +1,28 @@
+EXTI PIN 與RX連接導致IDLE判斷有誤
+
+
+
+Alternate Function Push-Pull :
+
+
+
+
+
+
+
+STM32核心寫法:
+MX設定好用IDE開，寫在 /* USER CODE BEGIN.... ~ /* USER CODE END.... 之間，避免被清除。
+
+中斷已被自動生成 + HAL's handler包好，FLAG不用關
+
+
+
+DMA:
+HT/TC-> 半滿全滿BUFFER時觸發
+RXNE-> BUFFER有就觸發 
+Double Buffer Mode: 內部可主動切不同BUFFER，CPU處理一個，同時DMA可傳/收另一個 = PINGPONG BUFFER
+
+
+IDLE-> 超過1單位資料長全HIGH則觸發， 注意測試時同一DMA快速收發可能會導致爭奪、測試成功上機失敗可能是stop bit不夠多(noise resilience)/SAMPLES不夠多
+	
+ps. 更改speed後，DMA要重設
